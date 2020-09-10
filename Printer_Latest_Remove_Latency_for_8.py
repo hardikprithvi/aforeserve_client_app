@@ -6,7 +6,7 @@ import random
 from pywinauto.keyboard import send_keys
 flag=0
 
-def printerConfig(manufac_name,mdelname):
+def printerConfig(manufac_name,mdelname,printer_ip):
     try:
         global flag
         
@@ -139,7 +139,7 @@ def printerConfig(manufac_name,mdelname):
                                     header_flag=checkForHeaderInWindows(printer_host_port,'Type a printer hostname or IP address','Text')
                                     
                                     if header_flag:
-                                        printer_host_port.child_window(title="Hostname or IP address:", control_type="Edit").wait('visible', timeout=120, retry_interval=0.5).type_keys('10.0.1.14')
+                                        printer_host_port.child_window(title="Hostname or IP address:", control_type="Edit").wait('visible', timeout=120, retry_interval=0.5).type_keys(printer_ip)
                                         #printer_host_port.child_window(title="Port name:",control_type="Edit").type_keys("{BACKSPACE}")
                                         #printer_host_port.child_window(title="Port name:", control_type="Edit").type_keys('adi129_10.0.1.14')
                                         printer_host_port.child_window(title="Next",control_type="Button").wait('visible', timeout=120, retry_interval=0.5).click()
